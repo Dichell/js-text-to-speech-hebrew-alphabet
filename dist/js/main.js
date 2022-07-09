@@ -35,6 +35,14 @@ if (synth.onvoiceschanged !== undefined) {
 
 //Speak
 
+const myHebrew = [
+  "alef", "bet", "himel", "dalet", "hey", "vav", "zain", "het", "tet", "yude",  "kaf", "laamed", "mem", "noon", "sameh", "ain", "pay"
+, "zcady", "kuf", "resh", "shin", "taf"];
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const speak = () => {
   // Check if speaking
   if (synth.speaking) {
@@ -70,7 +78,20 @@ const speak = () => {
     //Speak
     synth.speak(speakText);
   }
+
+  else {
+    const selectedVoice = voiceSelect.selectedOptions[0].getAttribute("data-name");
+
+      const randomWord = myHebrew[Math.floor(Math.random() * myHebrew.length)]
+      const speakText = new SpeechSynthesisUtterance(randomWord);
+      voices.forEach(voice => {if (voice.name === selectedVoice) {speakText.voice = voice;}});
+      speakText.rate = rate.value;
+      speakText.pitch = pitch.value;
+      synth.speak(speakText);
+    
+  }
 };
+
 
 //Event listeners
 
