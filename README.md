@@ -15,3 +15,6 @@ I primarily use Bitbucket for my projects, so my Github profile consists of demo
 
 ## Acknowledgments
 * Brad Traversy - thanks for all of the inspiration and practice ideas!
+
+## hebrew-alphabet
+* A hebrew alphabet playing default.
